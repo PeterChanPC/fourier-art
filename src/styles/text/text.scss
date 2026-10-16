@@ -1,0 +1,41 @@
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.txt-start {
+  text-align: start;
+}
+
+.txt-wrap {
+  text-wrap: wrap;
+}
+
+.txt-nowrap {
+  text-wrap: nowrap;
+}
+
+.txt-shadow {
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+}
+
+@for $i from 0 through 9 {
+  .lsem-0\.#{$i} {
+    letter-spacing: $i * 0.1em;
+  }
+
+  .lhem-1\.#{$i} {
+    line-height: calc(1em + $i * 0.1em);
+  }
+}

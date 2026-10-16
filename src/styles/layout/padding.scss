@@ -1,0 +1,53 @@
+@use "../variable" as var;
+
+@for $i from 0 through 50 {
+  .p-#{$i} {
+    padding: $i * 1px;
+  }
+}
+
+@each $dir-label, $dir in var.$dirs {
+  .p#{$dir-label}-auto {
+    padding-#{$dir}: auto;
+  }
+
+  @for $i from 0 through 50 {
+    .p#{$dir-label}-#{$i} {
+      padding-#{$dir}: $i * 1px;
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .p#{$dir-label}-#{$i}\/10 {
+      padding-#{$dir}: $i * 10%;
+    }
+  }
+}
+
+@each $break-label, $break-pt in var.$break-pts {
+  @media (max-width: #{$break-pt}px) {
+    @for $i from 0 through 50 {
+      .#{$break-label}\:p-#{$i} {
+        padding: $i * 1px;
+      }
+    }
+
+    @each $dir-label, $dir in var.$dirs {
+      .#{$break-label}\:p#{$dir-label}-auto {
+        padding-#{$dir}: auto;
+      }
+
+      @for $i from 0 through 50 {
+        .#{$break-label}\:p#{$dir-label}-#{$i} {
+          padding-#{$dir}: $i * 1px;
+        }
+      }
+
+      @for $i from 1 through 9 {
+        .#{$break-label}\:p#{$dir-label}-#{$i}\/10 {
+          padding-#{$dir}: $i * 10%;
+        }
+      }
+    }
+  }
+}
