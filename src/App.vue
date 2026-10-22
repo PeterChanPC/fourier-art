@@ -41,6 +41,7 @@ import Sidebar from './components/sidebar.vue'
 }
 
 body {
+  --theme: dark;
   margin: 0;
   touch-action: none;
 }
