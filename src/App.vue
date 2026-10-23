@@ -1,12 +1,16 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
-import Sidebar from './components/sidebar.vue'
-</script>
-
 <template>
-  <!-- <Sidebar /> -->
-  <RouterView />
+  <GlobalHeader />
+  <router-view />
 </template>
+
+<script setup lang="ts">
+import GlobalHeader from '@/layout/global-header.vue'
+import { watchEffect } from 'vue'
+import { useThemeStore } from './stores/theme.store'
+
+const themeStore = useThemeStore()
+watchEffect(() => document.body.style.setProperty('--theme', themeStore.theme))
+</script>
 
 <style lang="scss">
 @use '@/styles/style' as style;
@@ -41,7 +45,6 @@ import Sidebar from './components/sidebar.vue'
 }
 
 body {
-  --theme: dark;
   margin: 0;
   touch-action: none;
 }

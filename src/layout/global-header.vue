@@ -1,0 +1,41 @@
+<template>
+  <header class="fixed flex a-center j-end t-0 w-dvw h-50 z-100">
+    <h1 class="absolute l-0 w-38 ml-16 mr-16 mt-auto mb-auto font-size-36 italic user-select-none">
+      Pc
+    </h1>
+
+    <div class="relative flex row a-center j-around h-50 pr-16">
+      <SwitchBtn
+        class="w-50 h-50"
+        :on-switch="themeStore.switchTheme"
+        :is-active="themeStore.isDark"
+        :img-left="icons.sun"
+        :img-right="icons.moonStars"
+      />
+      <button class="relative w-50 h-50 bg-none border-none pointer user-select-none">
+        <img :src="icons.cog" />
+      </button>
+    </div>
+  </header>
+</template>
+
+<script lang="ts">
+import SwitchBtn from '@/components/switch-btn.vue'
+import * as icons from '@/assets/img/d'
+import { useThemeStore } from '@/stores/theme.store'
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'global-header',
+  components: {
+    SwitchBtn,
+  },
+  setup() {
+    const themeStore = useThemeStore()
+
+    return { icons, themeStore }
+  },
+})
+</script>
+
+<style scoped lang="scss"></style>

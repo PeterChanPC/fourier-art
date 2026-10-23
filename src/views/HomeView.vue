@@ -1,6 +1,5 @@
 <template>
-  <button @click="start" class="fixed t-10 l-10">Play</button>
-  <button class="fixed t-10 r-10">Settings</button>
+  <button @click="start" class="fixed b-10 l-10">Play</button>
   <div class="page flex a-center j-center z--1">
     <div ref="svgContainer" v-html="noteSvg" v-show="false"></div>
     <Drawer
@@ -22,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import noteSvg from '@/assets/music note.svg?raw'
+import noteSvg from '@/assets/img/music-note.svg?raw'
 import Drawer from '@/components/drawer.vue'
 import { onMounted, ref, useTemplateRef } from 'vue'
 
